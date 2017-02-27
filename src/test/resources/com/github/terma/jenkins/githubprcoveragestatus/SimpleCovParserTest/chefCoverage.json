@@ -1,0 +1,22 @@
+{
+  "total": 2,
+  "touched": 1,
+  "untouched": 1,
+  "coverage": 50.0,
+  "detailed": {
+    "package[foo]": {
+      "source": {
+        "file": "./recipes/default.rb",
+        "line": 1
+      },
+      "touched": true
+    },
+    "template[bacon]": {
+      "source": {
+        "file": "./recipes/default.rb",
+        "line": 3
+      },
+      "touched": false
+    }
+  }
+}

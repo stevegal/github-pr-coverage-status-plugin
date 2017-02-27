@@ -55,7 +55,8 @@ final class GetCoverageCallable extends MasterToSlaveFileCallable<Float> impleme
         cov.addAll(getFloats(ws, "**/jacoco.xml", new JacocoParser()));
         cov.addAll(getFloats(ws, "**/jacocoTestReport.xml", new JacocoParser())); //default for gradle
         cov.addAll(getFloats(ws, "**/clover.xml", new CloverParser()));
-        cov.addAll(getFloats(ws, "**/coverage.json", new SimpleCovParser()));
+        cov.addAll(getFloats(ws, "**/coverage.json", new JsonCoverageParser("$.metrics.covered_percent")));
+        cov.addAll(getFloats(ws, "**/.coverage/results.json", new JsonCoverageParser("$.coverage")));
 
         float s = 0;
         for (float v : cov) s += v;
